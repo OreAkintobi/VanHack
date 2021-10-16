@@ -1,7 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
+import jobsReducer from './jobs';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    jobs: jobsReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
