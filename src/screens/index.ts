@@ -1,4 +1,4 @@
-import JobScreen from './Job';
-import JobsScreen from './Jobs';
+import JobScreen from './JobScreen';
+import JobsScreen from './JobsScreen';
 
 export {JobScreen, JobsScreen};
