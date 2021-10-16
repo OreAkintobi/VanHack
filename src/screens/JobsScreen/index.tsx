@@ -1,12 +1,32 @@
-import React from 'react';
-import {Text, View} from 'react-native';
-import styles from './styles';
+import React, {useEffect} from 'react';
+import {FlatList, SafeAreaView} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {JobListItem} from '../../components';
+import {RootState} from '../../store';
+import {fetchJobs} from '../../store/jobs';
+
+// import styles from './styles';
 
 const JobsScreen = () => {
+  const dispatch = useDispatch();
+  const {jobs, loading} = useSelector((state: RootState) => state.jobs);
+
+  const renderItem = ({item}: any) => <JobListItem job={item} />;
+
+  useEffect(() => {
+    dispatch(fetchJobs());
+  }, [dispatch]);
+
   return (
-    <View style={styles.container}>
-      <Text>Jobs Screen</Text>
-    </View>
+    <SafeAreaView>
+      <FlatList
+        data={jobs}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+        onRefresh={() => dispatch(fetchJobs())}
+        refreshing={loading}
+      />
+    </SafeAreaView>
   );
 };
 
