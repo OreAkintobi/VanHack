@@ -2,10 +2,16 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {JobScreen, JobsScreen} from '../screens';
+import {JobsData} from '../types';
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Jobs: undefined;
+  Job: {job: JobsData};
+};
 
-function AppNavigator() {
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -14,6 +20,6 @@ function AppNavigator() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 export default AppNavigator;

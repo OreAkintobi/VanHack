@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {JobsData} from '../../types';
@@ -7,13 +6,12 @@ import styles from './styles';
 
 interface JobListItemProps {
   job: JobsData;
+  onPressJobItem: () => void;
 }
 
-const JobListItem = ({job}: JobListItemProps) => {
-  const {navigate} = useNavigation();
-
+const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
   return (
-    <TouchableOpacity onPress={() => navigate('Job', {job})}>
+    <TouchableOpacity onPress={onPressJobItem}>
       <View style={styles.jobItemContainer} key={job.id}>
         <View style={styles.dataContainer}>
           <Text>Title: </Text>
