@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList, SafeAreaView} from 'react-native';
+import {ActivityIndicator, FlatList, SafeAreaView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {JobListItem} from '../../components';
 import {RootState} from '../../store';
@@ -7,7 +7,7 @@ import {fetchJobs} from '../../store/jobs';
 import {RootStackParamList} from '../../navigation';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-// import styles from './styles';
+import styles from './styles';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Jobs'>;
 
@@ -28,13 +28,17 @@ const JobsScreen = ({navigation}: Props) => {
 
   return (
     <SafeAreaView>
-      <FlatList
-        data={jobs}
-        renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
-        onRefresh={() => dispatch(fetchJobs())}
-        refreshing={loading}
-      />
+      {loading ? (
+        <ActivityIndicator size="large" style={styles.loader} />
+      ) : (
+        <FlatList
+          data={jobs}
+          renderItem={renderItem}
+          keyExtractor={item => item.id.toString()}
+          onRefresh={() => dispatch(fetchJobs())}
+          refreshing={loading}
+        />
+      )}
     </SafeAreaView>
   );
 };
