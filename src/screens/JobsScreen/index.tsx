@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ActivityIndicator, FlatList, View} from 'react-native';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {JobListItem} from '../../components';
 import {RootState} from '../../store';
@@ -31,13 +31,24 @@ const JobsScreen = ({navigation}: Props) => {
       {loading ? (
         <ActivityIndicator size="large" style={styles.loader} />
       ) : (
-        <FlatList
-          data={jobs}
-          renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
-          onRefresh={() => dispatch(fetchJobs())}
-          refreshing={loading}
-        />
+        <>
+          <FlatList
+            data={jobs}
+            renderItem={renderItem}
+            keyExtractor={item => item.id.toString()}
+            onRefresh={() => dispatch(fetchJobs())}
+            refreshing={loading}
+            ListHeaderComponent={
+              <View style={styles.headerView}>
+                <Text style={styles.headerText}>
+                  Find Your Next Exciting Job.
+                </Text>
+              </View>
+            }
+            stickyHeaderIndices={[0]}
+            stickyHeaderHiddenOnScroll={true}
+          />
+        </>
       )}
     </View>
   );

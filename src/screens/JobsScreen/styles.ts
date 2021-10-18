@@ -7,10 +7,20 @@ const styles = StyleSheet.create({
     marginBottom: 'auto',
   },
   container: {
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.black,
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 8,
+    paddingTop: 50,
+  },
+  headerView: {
+    paddingVertical: 20,
+    backgroundColor: colors.offBlack,
+  },
+  headerText: {
+    fontSize: 32,
+    fontWeight: '800',
+    color: colors.white,
   },
 });
 
