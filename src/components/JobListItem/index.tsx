@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+import moment from 'moment';
 import {JobsData} from '../../types';
 import {VanHackLogo} from '../../assets';
 import {countries} from '../../data';
@@ -18,8 +19,9 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
       ? 'Remote, then Relocate'
       : job?.relocate;
 
-  const country = countries.filter(item => item.code === job?.flagCode)[0]
-    ?.name;
+  const country = job?.flagCode
+    ? countries.filter(item => item.code === job?.flagCode)[0]?.name
+    : undefined;
 
   return (
     <TouchableOpacity
@@ -58,11 +60,18 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
         </View>
       </View>
 
-      <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-        <BottomTab title="Full Time" />
-        <BottomTab title={country} />
-        <BottomTab title={relocationStatus} />
-        <BottomTab title={job?.jobType} />
+      <View style={styles.bottomSection}>
+        <View style={styles.bottomTabsContainer}>
+          <BottomTab title="Full Time" />
+          {country && <BottomTab title={country} />}
+          <BottomTab title={relocationStatus} />
+        </View>
+
+        <View style={styles.timeText}>
+          <Text numberOfLines={1} style={styles.jobText}>
+            {moment(job?.createdAt).fromNow()}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );

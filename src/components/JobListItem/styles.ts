@@ -6,10 +6,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: colors.offBlack,
+    backgroundColor: '#272831',
     borderRadius: 12,
     justifyContent: 'space-between',
-    // height: 110,
   },
   jobItemContainer: {
     flexDirection: 'row',
@@ -42,6 +41,19 @@ const styles = StyleSheet.create({
     color: colors.darkGray,
     lineHeight: 12,
     marginBottom: 2,
+  },
+  bottomTabsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: '80%',
+  },
+  bottomSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  timeText: {
+    width: '20%',
   },
 });
 
