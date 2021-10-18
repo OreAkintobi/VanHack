@@ -32,14 +32,12 @@ const styles = StyleSheet.create({
   jobTitleText: {
     fontSize: 14,
     color: 'white',
-    lineHeight: 16,
     fontWeight: 'bold',
     marginBottom: 4,
   },
   jobText: {
     fontSize: 10,
     color: colors.darkGray,
-    lineHeight: 12,
     marginBottom: 2,
   },
   bottomTabsContainer: {

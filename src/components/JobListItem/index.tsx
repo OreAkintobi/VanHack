@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import moment from 'moment';
 import {JobsData} from '../../types';
 import {VanHackLogo} from '../../assets';
-import {countries} from '../../data';
+import {getCountry, getRelocationStatus} from '../../utils';
 
 import styles from './styles';
 import BottomTab from '../BottomTab';
@@ -14,15 +14,6 @@ interface JobListItemProps {
 }
 
 const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
-  const relocationStatus =
-    job?.relocate === 'RemoteRelocate'
-      ? 'Remote, then Relocate'
-      : job?.relocate;
-
-  const country = job?.flagCode
-    ? countries.filter(item => item.code === job?.flagCode)[0]?.name
-    : undefined;
-
   return (
     <TouchableOpacity
       style={styles.touchableContainer}
@@ -63,8 +54,8 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
       <View style={styles.bottomSection}>
         <View style={styles.bottomTabsContainer}>
           <BottomTab title="Full Time" />
-          {country && <BottomTab title={country} />}
-          <BottomTab title={relocationStatus} />
+          {getCountry(job) && <BottomTab title={getCountry(job) || ''} />}
+          <BottomTab title={getRelocationStatus(job)} />
         </View>
 
         <View style={styles.timeText}>
