@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ActivityIndicator, FlatList, SafeAreaView} from 'react-native';
+import {ActivityIndicator, FlatList, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {JobListItem} from '../../components';
 import {RootState} from '../../store';
@@ -27,7 +27,7 @@ const JobsScreen = ({navigation}: Props) => {
   }, [dispatch]);
 
   return (
-    <SafeAreaView>
+    <View style={styles.container}>
       {loading ? (
         <ActivityIndicator size="large" style={styles.loader} />
       ) : (
@@ -39,7 +39,7 @@ const JobsScreen = ({navigation}: Props) => {
           refreshing={loading}
         />
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 
