@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../theme';
 
 const styles = StyleSheet.create({
   touchableContainer: {
     marginBottom: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: '#1c1c25',
+    backgroundColor: colors.offBlack,
     borderRadius: 12,
     justifyContent: 'space-between',
     // height: 110,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
   jobText: {
     fontSize: 10,
-    color: '#3a3b43',
+    color: colors.darkGray,
     lineHeight: 12,
     marginBottom: 2,
   },

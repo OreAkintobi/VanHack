@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 4,
     paddingHorizontal: 8,
-    backgroundColor: '#3a3b43',
+    backgroundColor: colors.darkGray,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 8,
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
   },
   jobText: {
     fontSize: 8,
-    color: 'white',
+    color: colors.white,
     lineHeight: 10,
   },
 });

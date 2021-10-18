@@ -8,16 +8,17 @@ import {RNCamera} from 'react-native-camera';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Job'>;
 
-const JobScreen = ({route}: Props) => {
+const JobScreen = ({route, navigation}: Props) => {
   const {params} = route;
   const job: JobsData = params?.job;
   const camera = createRef<any>();
 
   const submit = async () => {
-    if (camera && camera.current) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const {uri, codec = 'mp4'} = await camera.current.recordAsync();
-      console.info(uri);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {uri, codec = 'mp4'} = await camera?.current?.recordAsync();
+    console.info(uri);
+    if (uri.trim() !== ' ' || uri !== undefined || uri !== null) {
+      navigation.navigate('Success');
     }
   };
 
@@ -58,7 +59,7 @@ const JobScreen = ({route}: Props) => {
 
       <View style={styles.container}>
         <View style={{flexDirection: 'row'}}>
-          <View style={{width: '50%'}}>{renderCam()}</View>
+          <View style={{width: '70%'}}>{renderCam()}</View>
         </View>
       </View>
     </View>
