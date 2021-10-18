@@ -29,6 +29,7 @@ const AppNavigator = () => {
               headerTitleStyle: {
                 fontSize: 14,
               },
+              headerShadowVisible: false,
               headerTintColor: colors.white,
               headerBackTitleVisible: false,
               headerStyle: {

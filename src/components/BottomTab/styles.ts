@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   jobText: {
     fontSize: 8,
     color: colors.white,
-    lineHeight: 10,
   },
 });
 
