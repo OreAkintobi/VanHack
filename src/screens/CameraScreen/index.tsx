@@ -1,10 +1,11 @@
-import React, {createRef} from 'react';
-import {Button, View} from 'react-native';
+import React, {createRef, useEffect} from 'react';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigation';
 import {RNCamera} from 'react-native-camera';
 
 import styles from './styles';
+import {colors} from '../../theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Job'>;
 
@@ -29,7 +30,7 @@ const CameraScreen = ({navigation}: Props) => {
       <RNCamera
         ref={camera}
         style={styles.preview}
-        defaultVideoQuality={RNCamera.Constants.VideoQuality['480p']}
+        defaultVideoQuality={RNCamera.Constants.VideoQuality['720p']}
         type={RNCamera.Constants.Type.back}
         flashMode={RNCamera.Constants.FlashMode.on}
         androidCameraPermissionOptions={{
@@ -50,9 +51,30 @@ const CameraScreen = ({navigation}: Props) => {
 
   return (
     <View style={styles.container}>
-      <Button title="Apply" onPress={submit} />
-      <Button title="Stop" onPress={stop} />
-      <View style={{width: '90%', height: '90%'}}>{renderCam()}</View>
+      <View style={{width: '100%', height: '90%'}}>{renderCam()}</View>
+
+      <View style={{flexDirection: 'row', height: '10%'}}>
+        <TouchableOpacity
+          style={[
+            styles.actionButton,
+            {
+              backgroundColor: colors.vanHackBlue,
+            },
+          ]}
+          onPress={submit}>
+          <Text>Start</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.actionButton,
+            {
+              backgroundColor: 'red',
+            },
+          ]}
+          onPress={stop}>
+          <Text>Stop</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

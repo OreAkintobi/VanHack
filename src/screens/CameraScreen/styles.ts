@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
   },
   capture: {
     flex: 0,
@@ -19,7 +18,13 @@ const styles = StyleSheet.create({
   },
   preview: {
     width: '100%',
-    height: '55%',
+    height: '100%',
+  },
+  actionButton: {
+    flex: 1,
+    paddingVertical: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
