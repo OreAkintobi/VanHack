@@ -20,8 +20,7 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
   return (
     <TouchableOpacity
       style={styles.touchableContainer}
-      onPress={onPressJobItem}
-      disabled={job?.canApply}>
+      onPress={onPressJobItem}>
       <View style={styles.jobItemContainer} key={job?.id}>
         <View style={styles.jobImage}>
           <Image
