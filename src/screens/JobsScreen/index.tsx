@@ -45,6 +45,7 @@ const JobsScreen = ({navigation}: Props) => {
                 </Text>
               </View>
             }
+            showsVerticalScrollIndicator={false}
             stickyHeaderIndices={[0]}
             stickyHeaderHiddenOnScroll={true}
           />

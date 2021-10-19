@@ -9,7 +9,7 @@ export type RootStackParamList = {
   Camera: undefined;
   Jobs: undefined;
   Job: {job: JobsData};
-  Success: undefined;
+  Success: {recording: string};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

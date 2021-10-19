@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import moment from 'moment';
 import {JobsData} from '../../types';
@@ -68,4 +68,4 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
   );
 };
 
-export default JobListItem;
+export default memo(JobListItem);
