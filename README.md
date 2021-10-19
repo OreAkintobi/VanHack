@@ -21,3 +21,13 @@
 4. to run the tests, please run `yarn test`.
 
 ## Screenshots
+
+<img width="386" alt="Screen Shot 2021-10-19 at 6 26 28 AM" src="https://user-images.githubusercontent.com/8383707/137848964-510c36af-7dba-4d33-95e4-c16b08e96a24.png">
+
+![Simulator Screen Shot - iPhone 12 Pro - 2021-10-19 at 06 09 16](https://user-images.githubusercontent.com/8383707/137848778-b4d29b90-8ed7-4767-a08a-b90c92714e27.png)
+![Simulator Screen Shot - iPhone 12 Pro - 2021-10-19 at 06 10 09](https://user-images.githubusercontent.com/8383707/137848791-4b019000-3970-46a9-8e78-e6782850e8ed.png)
+![Simulator Screen Shot - iPhone 12 Pro - 2021-10-19 at 06 10 21](https://user-images.githubusercontent.com/8383707/137848796-7cd093fb-a9ef-4108-9397-977d691de932.png)
+![Simulator Screen Shot - iPhone 12 Pro - 2021-10-19 at 06 10 57](https://user-images.githubusercontent.com/8383707/137848802-084ec61b-d6f9-431c-b90e-082bbd2179e0.png)
+![Simulator Screen Shot - iPhone 12 Pro - 2021-10-19 at 06 11 01](https://user-images.githubusercontent.com/8383707/137848805-98bd7f68-b8d9-4a8b-bb17-f58f7e52ca3a.png)
+![Simulator Screen Shot - iPhone 12 Pro - 2021-10-19 at 06 11 41](https://user-images.githubusercontent.com/8383707/137848808-67eb48f0-e3eb-4482-84a4-7826afb814b6.png)
+
