@@ -8,6 +8,7 @@
 4. Given more time (I take responsibility, as I could not devote time to the task during my workweek, so I worked on this over the weekend), I would do the following:
    - write some tests (tests to ensure that each part of the app renders properly, as well as tests for the API and the util functions.
    - properly mock the camera functionality iin a better way on simulators and emulators. I only recognised the usefulness of unimodules and incorporating expo dependencies into bare react native projects
+   - add a search bar and search functionality to the top of the Flatlist
    - use [styled-components](https://styled-components.com/) to properly create a theming structure and more robust way to expose my screens and components to colors, fonts, et cetera
    - fix the bug on the simulator for the Camera Screen. timer works normally on physical devices (as does the camera). However, the timer doesn't work properly on the Camera Screen in an iOS simulator.
 5. **Screenshots** of the project on iOS and Android devices as well as a **photo of my project folder structure** are below.
