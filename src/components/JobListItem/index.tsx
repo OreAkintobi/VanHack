@@ -20,7 +20,8 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
   return (
     <TouchableOpacity
       style={styles.touchableContainer}
-      onPress={onPressJobItem}>
+      onPress={onPressJobItem}
+      disabled={job?.canApply}>
       <View style={styles.jobItemContainer} key={job?.id}>
         <View style={styles.jobImage}>
           <Image
@@ -64,7 +65,11 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
         </View>
 
         <View style={styles.timeText}>
-          <Text numberOfLines={1} style={styles.jobText}>
+          {!job?.canApply && <BottomTab isExpired title="Expired" />}
+
+          <Text
+            numberOfLines={1}
+            style={[styles.jobText, {textAlignVertical: 'center'}]}>
             {getJobPostingTimeFromNow(job?.createdAt)}
           </Text>
         </View>

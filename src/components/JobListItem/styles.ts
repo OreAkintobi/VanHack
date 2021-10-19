@@ -38,12 +38,11 @@ const styles = StyleSheet.create({
   jobText: {
     fontSize: 10,
     color: colors.mediumGray,
-    marginBottom: 2,
   },
   bottomTabsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    width: '80%',
+    width: '70%',
   },
   bottomSection: {
     flexDirection: 'row',
@@ -51,7 +50,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   timeText: {
-    width: '20%',
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'flex-end',
+    width: '30%',
   },
 });
 

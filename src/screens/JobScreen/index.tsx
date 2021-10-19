@@ -19,6 +19,10 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Job'>;
 const JobScreen = ({route, navigation}: Props) => {
   const {params} = route;
   const job: JobsData = params?.job;
+  const buttonStyle = job?.canApply
+    ? styles.applyButton
+    : [styles.applyButton, {backgroundColor: 'red'}];
+
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
@@ -42,10 +46,15 @@ const JobScreen = ({route, navigation}: Props) => {
 
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.jobText2}>
-              Posted :
+              Posted :{' '}
               <Text style={styles.jobText}>
                 {getJobPostingTimeFromNow(job?.createdAt)}
               </Text>
+              {!job?.canApply && (
+                <Text style={[styles.jobText, {color: 'red'}]}>
+                  {'  '}Expired
+                </Text>
+              )}
             </Text>
           </View>
         </View>
@@ -106,9 +115,12 @@ const JobScreen = ({route, navigation}: Props) => {
 
       <View style={{flex: 1.5}}>
         <TouchableOpacity
-          style={styles.applyButton}
+          style={buttonStyle}
+          disabled={!job?.canApply}
           onPress={() => navigation.navigate('Camera')}>
-          <Text style={styles.applyButtonText}>Apply Now</Text>
+          <Text style={styles.applyButtonText}>
+            {job?.canApply ? 'Apply Now' : 'This Posting has Expired'}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

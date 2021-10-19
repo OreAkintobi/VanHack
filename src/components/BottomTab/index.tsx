@@ -5,11 +5,16 @@ import styles from './styles';
 
 interface JobListItemProps {
   title: string;
+  isExpired?: boolean;
 }
 
-const BottomTab = ({title}: JobListItemProps) => {
+const BottomTab = ({title, isExpired = false}: JobListItemProps) => {
+  const containerStyle = isExpired
+    ? [styles.container, {backgroundColor: 'red'}]
+    : styles.container;
+
   return (
-    <View style={styles.container}>
+    <View style={containerStyle}>
       <Text style={styles.jobText}>{title}</Text>
     </View>
   );
