@@ -42,7 +42,19 @@ const AppNavigator = () => {
           <Stack.Screen
             name="Camera"
             component={CameraScreen}
-            options={{headerShown: true}}
+            options={{
+              headerShown: true,
+              headerTitle: 'Camera',
+              headerTitleStyle: {
+                fontSize: 14,
+              },
+              headerShadowVisible: false,
+              headerTintColor: colors.white,
+              headerBackTitleVisible: false,
+              headerStyle: {
+                backgroundColor: colors.black,
+              },
+            }}
           />
           <Stack.Screen name="Success" component={SuccessScreen} />
         </Stack.Group>
