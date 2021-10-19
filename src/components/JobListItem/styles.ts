@@ -31,13 +31,13 @@ const styles = StyleSheet.create({
   },
   jobTitleText: {
     fontSize: 14,
-    color: 'white',
+    color: colors.white,
     fontWeight: 'bold',
     marginBottom: 4,
   },
   jobText: {
     fontSize: 10,
-    color: colors.darkGray,
+    color: colors.mediumGray,
     marginBottom: 2,
   },
   bottomTabsContainer: {

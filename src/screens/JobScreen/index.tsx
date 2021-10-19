@@ -7,7 +7,12 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigation';
 import {VanHackLogo} from '../../assets';
 import {colors} from '../../theme';
-import {getCountry, getRelocationStatus, getSalary} from '../../utils';
+import {
+  getCountry,
+  getJobPostingTimeFromNow,
+  getRelocationStatus,
+  getSalary,
+} from '../../utils';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Job'>;
 
@@ -30,8 +35,17 @@ const JobScreen = ({route, navigation}: Props) => {
 
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.jobText}>
-              {job.companyName} <Text style={styles.interpunct}> · </Text>{' '}
-              <Text style={styles.jobText2}>{job.location}</Text>
+              {job?.companyName} <Text style={styles.interpunct}> · </Text>{' '}
+              <Text style={styles.jobText2}>{job?.location}</Text>
+            </Text>
+          </View>
+
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={styles.jobText2}>
+              Posted :
+              <Text style={styles.jobText}>
+                {getJobPostingTimeFromNow(job?.createdAt)}
+              </Text>
             </Text>
           </View>
         </View>
@@ -46,7 +60,7 @@ const JobScreen = ({route, navigation}: Props) => {
 
           <View style={styles.detailView}>
             <Text style={styles.jobText2}>Country</Text>
-            <Text style={styles.jobText}>{getCountry(job)}</Text>
+            <Text style={styles.jobText}>{getCountry(job?.flagCode)}</Text>
           </View>
         </View>
 
@@ -67,7 +81,9 @@ const JobScreen = ({route, navigation}: Props) => {
 
           <View style={styles.detailView}>
             <Text style={styles.jobText2}>Option</Text>
-            <Text style={styles.jobText}>{getRelocationStatus(job)}</Text>
+            <Text style={styles.jobText}>
+              {getRelocationStatus(job?.relocate)}
+            </Text>
           </View>
         </View>
       </View>

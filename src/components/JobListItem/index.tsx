@@ -1,9 +1,12 @@
 import React, {memo} from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
-import moment from 'moment';
 import {JobsData} from '../../types';
 import {VanHackLogo} from '../../assets';
-import {getCountry, getRelocationStatus} from '../../utils';
+import {
+  getCountry,
+  getJobPostingTimeFromNow,
+  getRelocationStatus,
+} from '../../utils';
 
 import styles from './styles';
 import BottomTab from '../BottomTab';
@@ -54,13 +57,15 @@ const JobListItem = ({job, onPressJobItem}: JobListItemProps) => {
       <View style={styles.bottomSection}>
         <View style={styles.bottomTabsContainer}>
           <BottomTab title="Full Time" />
-          {getCountry(job) && <BottomTab title={getCountry(job) || ''} />}
-          <BottomTab title={getRelocationStatus(job)} />
+          {getCountry(job?.flagCode) && (
+            <BottomTab title={getCountry(job?.flagCode) || ''} />
+          )}
+          <BottomTab title={getRelocationStatus(job?.relocate)} />
         </View>
 
         <View style={styles.timeText}>
           <Text numberOfLines={1} style={styles.jobText}>
-            {moment(job?.createdAt).fromNow()}
+            {getJobPostingTimeFromNow(job?.createdAt)}
           </Text>
         </View>
       </View>

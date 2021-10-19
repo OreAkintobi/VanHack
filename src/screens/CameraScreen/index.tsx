@@ -37,7 +37,6 @@ const CameraScreen = ({navigation}: Props) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const {uri, codec = 'mp4'} = await camera?.current?.recordAsync();
 
-      console.info(uri);
       setRecording(uri);
     } else {
       setRecording('file:///data/user/0/com.vanhack/cache/Camera/myrecording');
@@ -46,8 +45,6 @@ const CameraScreen = ({navigation}: Props) => {
 
   const stop = async () => {
     await camera?.current?.stopRecording();
-
-    console.info(recording);
     stopTimer();
 
     if (

@@ -1,12 +1,15 @@
+import moment from 'moment';
 import {countries} from '../data';
 import {JobsData} from '../types';
 
-export const getRelocationStatus = (job: JobsData) =>
-  job?.relocate === 'RemoteRelocate' ? 'Remote, then Relocate' : job?.relocate;
+export const getRelocationStatus = (relocateStatus: string) =>
+  relocateStatus === 'RemoteRelocate'
+    ? 'Remote, then Relocate'
+    : relocateStatus;
 
-export const getCountry = (job: JobsData) =>
-  job?.flagCode
-    ? countries.filter(item => item.code === job?.flagCode)[0]?.name
+export const getCountry = (flagCode: string) =>
+  flagCode
+    ? countries.filter(item => item.code === flagCode)[0]?.name
     : undefined;
 
 export const getSalary = (job: JobsData) => {
@@ -18,4 +21,8 @@ export const getSalary = (job: JobsData) => {
   }).format(job?.salaryTo);
 
   return `${job?.currency} ${num} - ${num2}`;
+};
+
+export const getJobPostingTimeFromNow = (date: string) => {
+  return moment(date).fromNow();
 };
