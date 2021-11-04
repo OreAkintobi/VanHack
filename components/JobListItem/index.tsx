@@ -2,7 +2,8 @@ import React, { memo } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import { JobsData } from '../../types';
 import { VanHackLogo } from '../../assets/images';
-import { View, Text, SecondaryText, BottomTab } from '..';
+import { View, Text, SecondaryText } from '../Themed';
+import BottomTab from '../BottomTab';
 import {
   getCountry,
   getJobPostingTimeFromNow,

@@ -1,9 +1,11 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import jobsReducer from './jobs';
+import snackBarReducer from './snackBar';
 
 export const store = configureStore({
   reducer: {
     jobs: jobsReducer,
+    snackBar: snackBarReducer,
   },
 });
 

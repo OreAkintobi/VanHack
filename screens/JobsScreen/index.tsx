@@ -32,25 +32,23 @@ const JobsScreen = ({ navigation }: Props) => {
       {loading ? (
         <ActivityIndicator size="large" style={styles.loader} />
       ) : (
-        <>
-          <FlatList
-            data={jobs}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
-            onRefresh={() => dispatch(fetchJobs())}
-            refreshing={loading}
-            ListHeaderComponent={
-              <View style={styles.headerView}>
-                <Text style={styles.headerText}>
-                  Find Your Next Exciting Job.
-                </Text>
-              </View>
-            }
-            showsVerticalScrollIndicator={false}
-            stickyHeaderIndices={[0]}
-            // stickyHeaderHiddenOnScroll={true}
-          />
-        </>
+        <FlatList
+          data={jobs}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+          onRefresh={() => dispatch(fetchJobs())}
+          refreshing={loading}
+          ListHeaderComponent={
+            <View style={styles.headerView}>
+              <Text style={styles.headerText}>
+                Find Your Next Exciting Job.
+              </Text>
+            </View>
+          }
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={[0]}
+          // stickyHeaderHiddenOnScroll={true}
+        />
       )}
     </View>
   );

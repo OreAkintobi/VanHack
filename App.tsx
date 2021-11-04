@@ -7,7 +7,6 @@ import { store } from './store';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
-import { useTheme } from '@react-navigation/native';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
